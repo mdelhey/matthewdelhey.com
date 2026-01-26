@@ -1,0 +1,461 @@
+:root {
+    --link-color: #1a1a1a;
+    --link-color-hover: #555555;
+    --link-color-visited: #1a1a1a;
+    --link-color-active: #1a1a1a;
+    --link-color-nav: #1a1a1a;
+}
+
+/* --- 0. Font --- */
+@charset "UTF-8";
+/* Import ET Book styles
+   adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot");
+    src: url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.woff") format("woff"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.ttf") format("truetype"), url("et-book/et-book-roman-line-figures/et-book-roman-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot");
+    src: url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.woff") format("woff"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.ttf") format("truetype"), url("et-book/et-book-display-italic-old-style-figures/et-book-display-italic-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book";
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot");
+    src: url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.woff") format("woff"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.ttf") format("truetype"), url("et-book/et-book-bold-line-figures/et-book-bold-line-figures.svg#etbookromanosf") format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "et-book-roman-old-style";
+    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot");
+    src: url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.eot?#iefix") format("embedded-opentype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.woff") format("woff"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.ttf") format("truetype"), url("et-book/et-book-roman-old-style-figures/et-book-roman-old-style-figures.svg#etbookromanosf") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- 1. Global Reset and Basic Typography --- */
+
+body {
+    background-color: #ffffff;
+    color: #2c2c2c;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-size: 17px;
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
+
+/* --- 2. Navigation and Header --- */
+
+header {
+    background-color: #f7f7f5;
+    max-width: 100%;
+    padding: 30px 20px 15px 20px;
+    text-align: center;
+}
+
+header .header-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Full-width border line */
+.header-border {
+    width: 100%;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+h1 {
+    font-size: 2.4em;
+    margin: 0 0 0.5em 0;
+    /* font-weight: normal; */
+    letter-spacing: 0.02em;
+    color: #1a1a1a;
+    font-weight: 700;
+    /* margin-top: 4rem; */
+    /* margin-bottom: 1.5rem; */
+    /* font-size: 3.2rem; */
+    /* line-height: 1; */
+}
+
+h1 a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+h1 a:hover {
+    color: inherit;
+}
+
+nav {
+    margin-bottom: 15px;
+}
+
+nav a {
+    color: #4a4a4a;
+    text-decoration: none;
+    padding: 8px 15px;
+    padding-bottom: 6px;
+    margin: 0 3px;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 0.1em;
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:visited {
+    color: var(--link-color-nav);
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #000000;
+    text-decoration: none;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+nav a.active {
+    color: var(--link-color-nav);
+    pointer-events: none;
+    border-bottom: 2px solid #1a1a1a;
+}
+
+/* --- 3. Layout (The Responsive Part) --- */
+
+/* Container with sidebar (for home page) */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 50px;
+    align-items: center;
+}
+
+/* Container without sidebar (for other pages) */
+.container-full {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Media Query for Responsiveness on smaller screens */
+@media (max-width: 768px) {
+    header {
+        padding: 20px 15px 10px 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 3px;
+        font-size: 0.75em;
+        padding: 6px 10px;
+        color: var(--link-color-nav);
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 25px 15px;
+    }
+
+    .profile-sidebar {
+        order: -1;
+        text-align: center;
+        padding-bottom: 25px;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .profile-image {
+        max-width: 250px;
+    }
+
+    .container-full {
+        padding: 25px 15px;
+    }
+
+    .painting-section {
+        padding: 30px 15px;
+    }
+
+    .painting-image {
+        max-width: 100%;
+    }
+}
+
+/* --- 4. Profile Sidebar and Image --- */
+
+.profile-sidebar {
+    text-align: center;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+/* --- 5. Main Content Styling --- */
+
+.main-content {
+    min-width: 0;
+}
+
+h2 {
+    font-size: 1.4em;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 8px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+}
+
+h3 {
+    font-size: 1.1em;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    color: #2c2c2c;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 1.2em;
+    color: #3a3a3a;
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 12px;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+a:link {
+    color: var(--link-color);
+}
+
+a:visited {
+    color: var(--link-color-visited);
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+a:active {
+    color: var(--link-color-active);
+}
+
+/* Italics for book/journal titles */
+em, i {
+    font-style: italic;
+}
+
+/* --- 6. CV-Specific Styles --- */
+
+.cv-section {
+    margin-bottom: 35px;
+}
+
+.cv-entry {
+    margin-bottom: 18px;
+    padding-left: 18px;
+    border-left: 2px solid #e0e0e0;
+}
+
+.cv-entry .date {
+    color: #666;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.cv-entry .title {
+    font-weight: bold;
+    color: #1a1a1a;
+}
+
+.cv-entry .details {
+    font-size: 0.95em;
+    color: #4a4a4a;
+}
+
+/* --- 7. Teaching-Specific Styles --- */
+
+.course-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.course-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.course-list li:last-child {
+    border-bottom: none;
+}
+
+.course-number {
+    font-weight: bold;
+    color: var(--link-color);
+}
+
+.course-title {
+    font-style: italic;
+}
+
+/* --- 8. Publication and Abstract Styles --- */
+
+
+
+.publication-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.publication-list > li {
+    margin-bottom: 25px;
+}
+
+.publication-entry {
+    line-height: 1.7;
+}
+
+/* .abstract-link { */
+/*     color: var(--link-color); */
+/*     cursor: pointer; */
+/*     text-decoration: none; */
+/*     font-weight: bold; */
+/*     transition: color 0.2s ease; */
+/* } */
+
+/* .abstract-link:hover { */
+/*     color: var(--link-color-hover); */
+/* } */
+
+.abstract-link {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.abstract-link:hover {
+    color: var(--link-color-hover);
+}
+
+.abstract-text {
+    display: none;
+    margin: 12px 0 0 0;
+    padding: 12px 15px;
+    background-color: #fafafa;
+    border-left: 2px solid #ddd;
+    font-size: 0.9em;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+.abstract-text.show {
+    display: block;
+}
+
+/* --- 9. Painting Section --- */
+
+.painting-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    text-align: center;
+    border-top: 1px solid #e8e8e8;
+}
+
+.painting-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+    border: 1px solid #ddd;
+}
+
+.painting-attribution {
+    font-size: 0.75em;
+    color: #888;
+    font-style: italic;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.painting-attribution a {
+    color: #666;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.painting-attribution a:hover {
+    color: #333;
+}
+
+/* --- 10. Footer --- */
+
+footer {
+    max-width: 100%;
+    margin-top: 0;
+    padding: 25px 20px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #888;
+    border-top: 1px solid #e8e8e8;
+    letter-spacing: 0.03em;
+}
+
+footer p {
+    margin: 0;
+    color: #888;
+}
